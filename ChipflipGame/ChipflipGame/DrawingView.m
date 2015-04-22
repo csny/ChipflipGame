@@ -15,8 +15,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
+        [self initDrawArrays];
     }
     
+    return self;
+}
+
+- (void)initDrawArrays
+{
     // チップ総数と黒オセロの初期数
     _BEGIN_CHIP_NUM=12;
     _BEGIN_BLACK_NUM=7;
@@ -64,7 +70,6 @@
             _isBlack[i]=[NSNumber numberWithInteger:0];
         }
     }
-    return self;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -75,10 +80,10 @@
     // 色を定義
     CGFloat white[4] = {1.0f, 1.0f, 1.0f, 1.0f};
     CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
-    CGFloat cyan[4] = {0.5f, 0.8f, 1.0f, 1.0f};
+    //CGFloat cyan[4] = {0.5f, 0.8f, 1.0f, 1.0f};
     
     // グリッドを描画
-    CGContextSetStrokeColor(context, cyan);
+    CGContextSetStrokeColor(context, black);
     CGContextBeginPath(context);
     CGContextSetLineWidth(context, .5f);
     for (int y = 50; y < self.bounds.size.height; y+=50) {
@@ -212,7 +217,5 @@
     // CGRectを再読み込・再描画
     [self setNeedsDisplay];
 }
-
-
 
 @end

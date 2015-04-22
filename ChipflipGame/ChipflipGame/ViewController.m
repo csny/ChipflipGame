@@ -16,16 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor greenColor];
+    [self addViews];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)addViews
+{
+    // DrawingViewクラスのインスタンス化
     DrawingView *drawView = [[DrawingView alloc] initWithFrame:self.view.bounds];
-    // サブビューの追加
-    [self.view addSubview:drawView];
-    // animeViewを最前面へ
-    [self.view bringSubviewToFront:drawView];
+    drawView.tag = 73186;
     
     // ラベルを作成
     UILabel *explainLabel1 = [[UILabel alloc] init];
+    explainLabel1.tag = 73187;
     explainLabel1.frame = CGRectMake(10, 300, 150, 30);
     explainLabel1.backgroundColor = [UIColor clearColor];
     explainLabel1.textColor = [UIColor blackColor];
@@ -33,6 +41,7 @@
     explainLabel1.textAlignment = NSTextAlignmentLeft;
     explainLabel1.text = @"Touch black and";
     UILabel *explainLabel2 = [[UILabel alloc] init];
+    explainLabel2.tag = 73188;
     explainLabel2.frame = CGRectMake(100, 330, 250, 30);
     explainLabel2.backgroundColor = [UIColor clearColor];
     explainLabel2.textColor = [UIColor blackColor];
@@ -41,6 +50,7 @@
     explainLabel2.text = @"remove all Reversi's chip.";
     // ボタンを作成
     UIButton *resetBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    explainLabel2.tag = 73189;
     resetBtn.center = CGPointMake(150, 250);
     [resetBtn setBackgroundColor:[UIColor whiteColor]];
     [resetBtn.layer setShadowOpacity:1.0f];
@@ -48,25 +58,33 @@
               forState:UIControlStateNormal];
     [resetBtn sizeToFit];
     [resetBtn addTarget:self
-               action:@selector(button_Tapped:)
-     forControlEvents:UIControlEventTouchUpInside];
+                 action:@selector(button_Tapped:)
+       forControlEvents:UIControlEventTouchUpInside];
     
     // ボタンとラベルをビューに追加
-    //[self.view addSubview:resetBtn];
+    [self.view addSubview:drawView];
+    [self.view addSubview:resetBtn];
     [self.view addSubview:explainLabel1];
     [self.view addSubview:explainLabel2];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-// ボタンの動作
+// リセットボタン
 - (void)button_Tapped:(id)sender
 {
-    // リロード
+    // ビュー削除
+    UIView *beforeView1 = [self.view viewWithTag:73186];
+    UIView *beforeView2 = [self.view viewWithTag:73187];
+    UIView *beforeView3 = [self.view viewWithTag:73188];
+    UIView *beforeView4 = [self.view viewWithTag:73189];
+    /* 実装順を覚えてればそれでも可
+    UIView *beforeView = [self.view.subviews objectAtIndex:0];
+     */
+    [beforeView1 removeFromSuperview];
+    [beforeView2 removeFromSuperview];
+    [beforeView3 removeFromSuperview];
+    [beforeView4 removeFromSuperview];
+    // 再作成
+    [self addViews];
 }
 
 
