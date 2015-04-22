@@ -50,7 +50,7 @@
     explainLabel2.text = @"remove all Reversi's chip.";
     // ボタンを作成
     UIButton *resetBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    explainLabel2.tag = 73189;
+    resetBtn.tag = 73189;
     resetBtn.center = CGPointMake(150, 250);
     [resetBtn setBackgroundColor:[UIColor whiteColor]];
     [resetBtn.layer setShadowOpacity:1.0f];
@@ -61,11 +61,11 @@
                  action:@selector(button_Tapped:)
        forControlEvents:UIControlEventTouchUpInside];
     
-    // ボタンとラベルをビューに追加
+    // UIView、ラベル、ボタンをビューに追加
     [self.view addSubview:drawView];
-    [self.view addSubview:resetBtn];
     [self.view addSubview:explainLabel1];
     [self.view addSubview:explainLabel2];
+    [self.view addSubview:resetBtn];
 }
 
 // リセットボタン
