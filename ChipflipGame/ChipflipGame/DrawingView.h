@@ -14,7 +14,7 @@
 @property NSArray *cgrectArr;
 // オセロの状態[0:白,1:黒,2:なし]
 @property NSMutableArray *isBlack;
-@property int BEGIN_BLACK_NUM;
 @property int BEGIN_CHIP_NUM;
+@property int BEGIN_BLACK_NUM;
 
 @end

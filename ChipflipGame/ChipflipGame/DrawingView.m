@@ -51,10 +51,8 @@
             // 黒が使い切れない場合
             _isBlack[i]=[NSNumber numberWithInteger:1];
             blackNum--;
-            //NSLog(@"1");
         } else if(blackNum>0) {
             // 白黒シャッフルで代入
-            //NSLog(@"randum");
             int randVlaue=arc4random_uniform(2);
             switch (randVlaue) {
                 case 0:
@@ -172,6 +170,8 @@
                     default:
                         break;
                 }
+                // CGRectを再読み込・再描画
+                [self setNeedsDisplay];
             }
         }
     }
@@ -193,6 +193,8 @@
                 default:
                     break;
             }
+            // CGRectを再読み込・再描画
+            [self setNeedsDisplay];
         }
     }
     NSValue *tempRect11 = [_cgrectArr objectAtIndex:11];
@@ -211,11 +213,10 @@
                 default:
                     break;
             }
+            // CGRectを再読み込・再描画
+            [self setNeedsDisplay];
         }
     }
-    
-    // CGRectを再読み込・再描画
-    [self setNeedsDisplay];
 }
 
 @end
