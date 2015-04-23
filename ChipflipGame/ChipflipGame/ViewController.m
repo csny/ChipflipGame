@@ -76,9 +76,14 @@
     UIView *beforeView2 = [self.view viewWithTag:73187];
     UIView *beforeView3 = [self.view viewWithTag:73188];
     UIView *beforeView4 = [self.view viewWithTag:73189];
-    /* 実装順を覚えてればそれでも可
-    UIView *beforeView = [self.view.subviews objectAtIndex:0];
-     */
+    /*
+    // 実装順を覚えてればこれでも可
+    UIView *beforeView1 = [self.view.subviews objectAtIndex:0];
+    UIView *beforeView2 = [self.view.subviews objectAtIndex:1];
+    UIView *beforeView3 = [self.view.subviews objectAtIndex:2];
+    UIView *beforeView4 = [self.view.subviews objectAtIndex:3];
+    */
+    
     [beforeView1 removeFromSuperview];
     [beforeView2 removeFromSuperview];
     [beforeView3 removeFromSuperview];
