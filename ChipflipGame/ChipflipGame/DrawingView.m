@@ -129,7 +129,9 @@
     int i_val10 = [[_isBlack objectAtIndex:10] intValue];
     int i_val11 = [[_isBlack objectAtIndex:11] intValue];
     if (i_val0==2&&i_val1==2&&i_val2==2&&i_val3==2&&i_val4==2&&i_val5==2&&i_val6==2&&i_val7==2&&i_val8==2&&i_val9==2&&i_val10==2&&i_val11==2) {
-        NSLog(@"Congratulation! All Reversi's chip was remoed.");
+        UIFont *font = [UIFont fontWithName:@"Arial-ItalicMT" size:30.0f];
+        UIColor *color = [UIColor redColor];
+        [@"Congratulation" drawAtPoint:CGPointMake(100,100) withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:color}];
     }
 }
 

@@ -47,7 +47,7 @@
     explainLabel2.textColor = [UIColor blackColor];
     explainLabel2.font = [UIFont fontWithName:@"AvenirNext-Italic" size:20];
     explainLabel2.textAlignment = NSTextAlignmentLeft;
-    explainLabel2.text = @"remove all Reversi's chip.";
+    explainLabel2.text = @"remove all Reversi's chips.";
     // ボタンを作成
     UIButton *resetBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     resetBtn.tag = 73189;
